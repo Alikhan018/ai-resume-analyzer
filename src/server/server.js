@@ -1,11 +1,11 @@
 const express = require('express');
 const DBConnection = require('../database/connection');
-
+const { env } = require('../environment/enivronment');
 
 class Server {
     constructor() {
-        this.port = 3000;
-        this.host = 'localhost';
+        this.port = env.app.port;
+        this.host = env.app.host;
         this.app = express();
         this.dbConnection = new DBConnection();
         this.start();
